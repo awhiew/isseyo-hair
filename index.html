@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Isseyo Hair | Korean Hair Salon in South Yarra, Melbourne</title>
+  <meta name="description" content="Isseyo Hair — South Yarra's premier Korean hair salon. Specialising in digital perms, colouring, and bridal styling. Book with Sunny today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #FAF7F2;
+      --ink: #1A1A1A;
+      --ink-muted: #5a5a5a;
+      --accent: #C9A882;
+      --accent-dark: #b08f6a;
+      --accent-light: #e8d9c8;
+      --white: #ffffff;
+      --border: #e8e0d5;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 5%;
+      background: rgba(250, 247, 242, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s ease;
+    }
+
+    nav.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.75rem;
+      background-color: var(--accent);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--accent-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(201, 168, 130, 0.35);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--accent);
+      color: var(--white);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--ink);
+      transition: all 0.3s ease;
+    }
+
+    /* ── MOBILE NAV ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 65px;
+      left: 0;
+      right: 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 5%;
+      z-index: 99;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--ink-muted);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 5% 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(201,168,130,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(201,168,130,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 700px;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '—';
+      margin: 0 0.75rem;
+      opacity: 0.5;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 7vw, 5.5rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2.2vw, 1.3rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-muted);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0.4;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: var(--ink);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 0.8; transform: scaleY(1.2); }
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 6rem 5%;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-tag {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.85rem;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 500;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .section-divider {
+      width: 48px;
+      height: 2px;
+      background: var(--accent);
+      margin: 1.25rem auto 0;
+    }
+
+    /* ── SERVICES ── */
+    #services {
+      background: var(--white);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      cursor: default;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(201, 168, 130, 0.18);
+      border-color: var(--accent-light);
+    }
+
+    .service-icon {
+      font-size: 2.4rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .service-card p {
+      font-size: 0.85rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    .service-badge {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 0.25rem 0.75rem;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    #about-section {
+      padding: 6rem 5%;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: var(--accent-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: var(--accent-dark);
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+    }
+
+    .about-photo-placeholder .photo-icon {
+      font-size: 2.5rem;
+      opacity: 0.5;
+    }
+
+    .about-accent-box {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      width: 60%;
+      height: 60%;
+      border: 2px solid var(--accent);
+      z-index: -1;
+    }
+
+    .about-content .section-tag {
+      text-align: left;
+    }
+
+    .about-content h2 {
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content p {
+      font-size: 0.95rem;
+      color: var(--ink-muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.85;
+    }
+
+    .about-content p strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .about-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── GALLERY ── */
+    #gallery {
+      background: var(--white);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      background: var(--accent-light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      color: var(--accent-dark);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+    }
+
+    .gallery-item .gallery-icon {
+      font-size: 2rem;
+      opacity: 0.4;
+    }
+
+    .gallery-item:nth-child(2) { background: #e8dfd4; }
+    .gallery-item:nth-child(3) { background: #edddd0; }
+    .gallery-item:nth-child(4) { background: #e4d8cc; }
+    .gallery-item:nth-child(5) { background: #ede4da; }
+    .gallery-item:nth-child(6) { background: #e6ddd2; }
+
+    /* ── CONTACT ── */
+    #contact {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #contact-section {
+      padding: 6rem 5%;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .contact-icon {
+      font-size: 1.2rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-text {
+      text-align: left;
+    }
+
+    .contact-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+
+    .contact-value a {
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .contact-value a:hover {
+      color: var(--accent);
+    }
+
+    .hours-note {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem 5%;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+    }
+
+    footer .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    footer .footer-logo span {
+      color: var(--accent);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      #about {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about-content h2,
+      .about-content .section-tag {
+        text-align: center;
+      }
+
+      .about-stats {
+        justify-content: center;
+      }
+
+      .about-accent-box {
+        display: none;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-item {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .contact-text {
+        text-align: center;
+      }
+
+      section {
+        padding: 4rem 5%;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">Isseyo <span>Hair</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about-section">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact-section">Contact</a></li>
+      <li><a href="https://www.bookwell.com.au/venue/nb/isseyo-hair/south-yarra/3141" target="_blank" rel="noopener" class="btn">Book Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ── MOBILE MENU ── -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services" onclick="closeMobileMenu()">Services</a>
+    <a href="#about-section" onclick="closeMobileMenu()">About</a>
+    <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
+    <a href="#contact-section" onclick="closeMobileMenu()">Contact</a>
+    <a href="https://www.bookwell.com.au/venue/nb/isseyo-hair/south-yarra/3141" target="_blank" rel="noopener" class="btn" style="text-align:center;">Book Now</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Korean Hair Salon · South Yarra</p>
+      <h1>Isseyo<br><em>Hair</em></h1>
+      <p class="hero-tagline">South Yarra's best kept secret</p>
+      <div class="hero-cta-group">
+        <a href="https://www.bookwell.com.au/venue/nb/isseyo-hair/south-yarra/3141" target="_blank" rel="noopener" class="btn">Book Your Appointment</a>
+        <a href="#services" class="btn btn-outline">Explore Services</a>
+      </div>
+    </div>
+    <div class="scroll-hint">Scroll</div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section id="services">
+    <div class="section-header">
+      <span class="section-tag">What We Offer</span>
+      <h2>Our Services</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">✨</span>
+        <h3>Digital Perming</h3>
+        <p>Our signature service. Soft, voluminous waves crafted with Korean techniques for long-lasting, natural-looking results.</p>
+        <span class="service-badge">Signature</span>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎨</span>
+        <h3>Hair Colouring</h3>
+        <p>From lived-in balayage to vivid transformations — Sunny's artistry with colour brings your vision to life.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💍</span>
+        <h3>Wedding Hair</h3>
+        <p>Elegant bridal styling for your most memorable day. Consultations available for brides and wedding parties.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">✂️</span>
+        <h3>Haircuts</h3>
+        <p>Precision cuts tailored to your face shape, lifestyle, and personal style — with a distinctly Korean eye for detail.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💆</span>
+        <h3>Treatments</h3>
+        <p>Restorative hair treatments to nourish, repair, and revive. Leave the salon with hair that feels as good as it looks.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about-section">
+    <div id="about">
+      <div class="about-visual">
+        <div class="about-photo-placeholder">
+          <span class="photo-icon">🌸</span>
+          <span>Photo coming soon</span>
+        </div>
+        <div class="about-accent-box"></div>
+      </div>
+      <div class="about-content">
+        <span class="section-tag">Meet Your Stylist</span>
+        <h2>Hello, I'm Sunny</h2>
+        <p>
+          Isseyo Hair was born from a simple belief: that every client deserves the kind of meticulous,
+          thoughtful care that Korean hair culture has perfected over generations. Tucked along beautiful
+          <strong>Toorak Road in South Yarra</strong>, our salon is a calm, welcoming space where great hair happens.
+        </p>
+        <p>
+          As a <strong>colouring specialist</strong>, Sunny brings a refined eye for tone, dimension, and wearability.
+          Whether you're dreaming of a subtle glow-up or a bold reinvention, she works closely with each
+          client to deliver results that feel authentically <em>you</em> — and last long beyond your appointment.
+        </p>
+        <p>
+          Walk-ins are always welcome. Come as you are.
+        </p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <span class="stat-number">5</span>
+            <span class="stat-label">Services offered</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">∞</span>
+            <span class="stat-label">Walk-ins welcome</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">1</span>
+            <span class="stat-label">Dedicated stylist</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALLERY ── -->
+  <section id="gallery">
+    <div class="section-header">
+      <span class="section-tag">Our Work</span>
+      <h2>Gallery</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <span class="gallery-icon">📷</span>
+        <span>Photo coming soon</span>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-icon">📷</span>
+        <span>Photo coming soon</span>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-icon">📷</span>
+        <span>Photo coming soon</span>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-icon">📷</span>
+        <span>Photo coming soon</span>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-icon">📷</span>
+        <span>Photo coming soon</span>
+      </div>
+      <div class="gallery-item">
+        <span class="gallery-icon">📷</span>
+        <span>Photo coming soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact-section">
+    <div id="contact">
+      <div class="section-header">
+        <span class="section-tag">Find Us</span>
+        <h2>Get in Touch</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-text">
+            <span class="contact-label">Address</span>
+            <span class="contact-value">
+              <a href="https://maps.google.com/?q=8/101-105+Toorak+Rd+South+Yarra+VIC+3141" target="_blank" rel="noopener">
+                8/101–105 Toorak Rd, South Yarra VIC 3141
+              </a>
+            </span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-text">
+            <span class="contact-label">Phone</span>
+            <span class="contact-value">
+              <a href="tel:+61430841030">+61 430 841 030</a>
+            </span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-text">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">
+              <a href="mailto:isseyohair@gmail.com">isseyohair@gmail.com</a>
+            </span>
+          </div>
+        </div>
+      </div>
+      <p class="hours-note">Walk-ins welcome · Appointments recommended for weekends</p>
+      <br />
+      <a href="https://www.bookwell.com.au/venue/nb/isseyo-hair/south-yarra/3141" target="_blank" rel="noopener" class="btn">Book Your Appointment</a>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <span class="footer-logo">Isseyo <span>Hair</span></span>
+    <p>8/101–105 Toorak Rd, South Yarra VIC 3141 &nbsp;·&nbsp; Stylist: Sunny</p>
+    <br />
+    <p>&copy; 2026 Isseyo Hair. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Nav scroll shadow
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+    }
+
+    // Close mobile menu on outside click
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+      }
+    });
+
+    // Fade-in on scroll
+    const fadeEls = document.querySelectorAll('.service-card, .gallery-item, .contact-item');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = entry.target.classList.contains('service-card')
+            ? 'translateY(0)'
+            : entry.target.style.transform;
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeEls.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      if (el.classList.contains('service-card')) {
+        el.style.transform = 'translateY(20px)';
+      }
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
