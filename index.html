@@ -518,6 +518,96 @@
     .gallery-item:nth-child(5) { background: #ede4da; }
     .gallery-item:nth-child(6) { background: #e6ddd2; }
 
+    /* ── REVIEWS ── */
+    #reviews-section {
+      background: var(--cream);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+    }
+
+    .review-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(201, 168, 130, 0.15);
+      border-color: var(--accent-light);
+    }
+
+    .review-stars {
+      color: var(--accent);
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .review-text {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.75;
+      flex: 1;
+    }
+
+    .review-text::before {
+      content: '\201C';
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--accent-light);
+      line-height: 0;
+      vertical-align: -0.35em;
+      margin-right: 0.15em;
+    }
+
+    .review-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 0.85rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .review-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    .review-date {
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .reviews-cta {
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ── CONTACT ── */
     #contact {
       max-width: 800px;
@@ -697,6 +787,7 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#about-section">About</a></li>
       <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews-section">Reviews</a></li>
       <li><a href="#contact-section">Contact</a></li>
       <li><a href="https://www.bookwell.com.au/venue/nb/isseyo-hair/south-yarra/3141" target="_blank" rel="noopener" class="btn">Book Now</a></li>
     </ul>
@@ -712,6 +803,7 @@
     <a href="#services" onclick="closeMobileMenu()">Services</a>
     <a href="#about-section" onclick="closeMobileMenu()">About</a>
     <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
+    <a href="#reviews-section" onclick="closeMobileMenu()">Reviews</a>
     <a href="#contact-section" onclick="closeMobileMenu()">Contact</a>
     <a href="https://www.bookwell.com.au/venue/nb/isseyo-hair/south-yarra/3141" target="_blank" rel="noopener" class="btn" style="text-align:center;">Book Now</a>
   </div>
@@ -844,6 +936,60 @@
         <span class="gallery-icon">📷</span>
         <span>Photo coming soon</span>
       </div>
+    </div>
+  </section>
+
+  <!-- ── REVIEWS ── -->
+  <section id="reviews-section">
+    <div class="section-header">
+      <span class="section-tag">Client Reviews</span>
+      <h2>What Our Clients Say</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Got a haircut from Sunny today and it was the best experience ever! She took time to understand exactly what I wanted and discussed suggested tweaks to better suit my face shape and hair type. The results were excellent and I couldn't be more happy with the haircut. My new go-to hairdresser for sure!</p>
+        <div class="review-footer">
+          <span class="review-name">Lucy</span>
+          <span class="review-date">Oct 2022</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Had a haircut and digital perm with the lovely Sunny and am very happy with it! Lovely big natural waves and the process was very smooth and personable. Would highly recommend Isseyo for a perm or haircut.</p>
+        <div class="review-footer">
+          <span class="review-name">Yunn</span>
+          <span class="review-date">Jan 2022</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Sunny had saved my hair — it was so much healthier and more manageable. She completely understood my hair type and what needed to be done. I've never felt this kind of trust in a hair stylist before. I swear I'll never go anywhere else. Highly recommended.</p>
+        <div class="review-footer">
+          <span class="review-name">Amy</span>
+          <span class="review-date">Jan 2020</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Sunny is a great hairdresser who treats every customer like a friend. The perm turned out amazing, been getting so many compliments! I like that she's really honest and tells you what you need to get the result you want.</p>
+        <div class="review-footer">
+          <span class="review-name">Lana</span>
+          <span class="review-date">Jun 2019</span>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I can not thank Sunny enough for my amazing new hair style. I received so many compliments. My hair still looks good a week later and I now always wake up with nice hair. Sunny really makes me change my mind about haircuts.</p>
+        <div class="review-footer">
+          <span class="review-name">Ing</span>
+          <span class="review-date">May 2019</span>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-cta">
+      <a href="https://www.google.com/maps/search/Isseyo+Hair+South+Yarra" target="_blank" rel="noopener" class="btn btn-outline">See All Reviews on Google</a>
     </div>
   </section>
 
