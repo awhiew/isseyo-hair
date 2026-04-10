@@ -316,65 +316,88 @@
       margin: 1.25rem auto 0;
     }
 
-    /* ── SERVICES ── */
+    /* ── SERVICES & PRICING ── */
     #services {
       background: var(--white);
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      max-width: 1100px;
+    .pricing-table {
+      max-width: 760px;
       margin: 0 auto;
     }
 
-    .service-card {
-      background: var(--cream);
-      border: 1px solid var(--border);
-      padding: 2.5rem 2rem;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      cursor: default;
+    .pricing-category {
+      margin-bottom: 2.5rem;
     }
 
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 40px rgba(201, 168, 130, 0.18);
-      border-color: var(--accent-light);
-    }
-
-    .service-icon {
-      font-size: 2.4rem;
-      margin-bottom: 1.2rem;
-      display: block;
-    }
-
-    .service-card h3 {
+    .pricing-category-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.15rem;
       font-weight: 500;
       color: var(--ink);
-      margin-bottom: 0.6rem;
-      line-height: 1.3;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1.5px solid var(--accent);
     }
 
-    .service-card p {
-      font-size: 0.85rem;
+    .pricing-row {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 0.5rem;
+      border-bottom: 1px solid var(--border);
+      gap: 1rem;
+    }
+
+    .pricing-service {
+      flex: 1;
+      font-size: 0.92rem;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .pricing-duration {
+      font-size: 0.82rem;
       color: var(--ink-muted);
-      line-height: 1.6;
+      min-width: 90px;
+      text-align: right;
     }
 
-    .service-badge {
-      display: inline-block;
-      margin-top: 1rem;
-      font-size: 0.68rem;
+    .pricing-price {
+      font-size: 0.95rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
       color: var(--accent);
+      min-width: 46px;
+      text-align: right;
+    }
+
+    .pricing-row--signature {
+      background: linear-gradient(90deg, rgba(201,168,130,0.07) 0%, transparent 100%);
+    }
+
+    .pricing-signature-badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
       background: var(--accent-light);
-      padding: 0.25rem 0.75rem;
+      padding: 0.18rem 0.55rem;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    .pricing-disclaimer {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
     }
 
     /* ── ABOUT ── */
@@ -740,10 +763,6 @@
         font-size: 2.8rem;
       }
 
-      .services-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
       .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -763,10 +782,6 @@
     }
 
     @media (max-width: 420px) {
-      .services-grid {
-        grid-template-columns: 1fr;
-      }
-
       .gallery-grid {
         grid-template-columns: 1fr;
       }
@@ -823,40 +838,91 @@
     <div class="scroll-hint">Scroll</div>
   </section>
 
-  <!-- ── SERVICES ── -->
+  <!-- ── SERVICES & PRICING ── -->
   <section id="services">
     <div class="section-header">
       <span class="section-tag">What We Offer</span>
-      <h2>Our Services</h2>
+      <h2>Services &amp; Pricing</h2>
       <div class="section-divider"></div>
     </div>
-    <div class="services-grid">
-      <div class="service-card">
-        <span class="service-icon">✨</span>
-        <h3>Digital Perming</h3>
-        <p>Our signature service. Soft, voluminous waves crafted with Korean techniques for long-lasting, natural-looking results.</p>
-        <span class="service-badge">Signature</span>
+    <div class="pricing-table">
+
+      <div class="pricing-category">
+        <h3 class="pricing-category-title">Women's Haircuts &amp; Styling</h3>
+        <div class="pricing-row">
+          <span class="pricing-service">Ladies' Cut</span>
+          <span class="pricing-duration">30 min</span>
+          <span class="pricing-price">$55</span>
+        </div>
       </div>
-      <div class="service-card">
-        <span class="service-icon">🎨</span>
-        <h3>Hair Colouring</h3>
-        <p>From lived-in balayage to vivid transformations — Sunny's artistry with colour brings your vision to life.</p>
+
+      <div class="pricing-category">
+        <h3 class="pricing-category-title">Men's Haircuts</h3>
+        <div class="pricing-row">
+          <span class="pricing-service">Men's Cut</span>
+          <span class="pricing-duration">30 min</span>
+          <span class="pricing-price">$35</span>
+        </div>
       </div>
-      <div class="service-card">
-        <span class="service-icon">💍</span>
-        <h3>Wedding Hair</h3>
-        <p>Elegant bridal styling for your most memorable day. Consultations available for brides and wedding parties.</p>
+
+      <div class="pricing-category">
+        <h3 class="pricing-category-title">Hair Colouring</h3>
+        <div class="pricing-row">
+          <span class="pricing-service">Colour</span>
+          <span class="pricing-duration">1 hr</span>
+          <span class="pricing-price">$120</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-service">Colour Regrowth</span>
+          <span class="pricing-duration">1 hr</span>
+          <span class="pricing-price">$90</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-service">Foils (Half Head)</span>
+          <span class="pricing-duration">2 hrs</span>
+          <span class="pricing-price">$100</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-service">Foils (Full Head)</span>
+          <span class="pricing-duration">2 hrs 30 min</span>
+          <span class="pricing-price">$120</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-service">Balayage</span>
+          <span class="pricing-duration">1 hr 30 min</span>
+          <span class="pricing-price">$120</span>
+        </div>
       </div>
-      <div class="service-card">
-        <span class="service-icon">✂️</span>
-        <h3>Haircuts</h3>
-        <p>Precision cuts tailored to your face shape, lifestyle, and personal style — with a distinctly Korean eye for detail.</p>
+
+      <div class="pricing-category">
+        <h3 class="pricing-category-title">Hair Styling</h3>
+        <div class="pricing-row">
+          <span class="pricing-service">Blow Dry</span>
+          <span class="pricing-duration">30 min</span>
+          <span class="pricing-price">$30</span>
+        </div>
       </div>
-      <div class="service-card">
-        <span class="service-icon">💆</span>
-        <h3>Treatments</h3>
-        <p>Restorative hair treatments to nourish, repair, and revive. Leave the salon with hair that feels as good as it looks.</p>
+
+      <div class="pricing-category">
+        <h3 class="pricing-category-title">Hair Treatments</h3>
+        <div class="pricing-row">
+          <span class="pricing-service">Soft Perm</span>
+          <span class="pricing-duration">2 hrs</span>
+          <span class="pricing-price">$90</span>
+        </div>
+        <div class="pricing-row pricing-row--signature">
+          <span class="pricing-service">Digital Perm <span class="pricing-signature-badge">Signature</span></span>
+          <span class="pricing-duration">2 hrs</span>
+          <span class="pricing-price">$120</span>
+        </div>
+        <div class="pricing-row">
+          <span class="pricing-service">Shiseido Straightening Treatment</span>
+          <span class="pricing-duration">2 hrs</span>
+          <span class="pricing-price">$180</span>
+        </div>
       </div>
+
+      <p class="pricing-disclaimer">Prices may vary depending on hair length and thickness. Please call to confirm.</p>
     </div>
   </section>
 
@@ -1031,6 +1097,14 @@
             </span>
           </div>
         </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div class="contact-text">
+            <span class="contact-label">Hours</span>
+            <span class="contact-value">Open today 10:00am – 7:00pm</span>
+            <span class="hours-note">Full weekly hours — Sunny to confirm</span>
+          </div>
+        </div>
       </div>
       <p class="hours-note">Walk-ins welcome · Appointments recommended for weekends</p>
       <br />
@@ -1073,14 +1147,12 @@
     });
 
     // Fade-in on scroll
-    const fadeEls = document.querySelectorAll('.service-card, .gallery-item, .contact-item');
+    const fadeEls = document.querySelectorAll('.pricing-category, .gallery-item, .contact-item');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.style.opacity = '1';
-          entry.target.style.transform = entry.target.classList.contains('service-card')
-            ? 'translateY(0)'
-            : entry.target.style.transform;
+          entry.target.style.transform = 'translateY(0)';
           observer.unobserve(entry.target);
         }
       });
@@ -1088,10 +1160,8 @@
 
     fadeEls.forEach(el => {
       el.style.opacity = '0';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      if (el.classList.contains('service-card')) {
-        el.style.transform = 'translateY(20px)';
-      }
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
       observer.observe(el);
     });
   </script>
