@@ -764,7 +764,57 @@
       }
     }
 
-    /* ── BOOKING FORM ── */
+    /* ── BOOKING WIDGET ── */
+  .booking-widget { display:flex; gap:0; border-radius:12px; box-shadow:0 4px 30px rgba(0,0,0,0.10); overflow:hidden; background:#fff; margin-top:2.5rem; }
+  .bw-sidebar { background:#FAF7F2; padding:2rem 1.5rem; min-width:220px; max-width:260px; border-right:1px solid #e8e0d6; }
+  .bw-avatar { width:60px; height:60px; border-radius:50%; background:#C9A882; color:#fff; font-size:1.6rem; font-family:'Playfair Display',serif; display:flex; align-items:center; justify-content:center; margin-bottom:1rem; }
+  .bw-salon-name { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; color:#1A1A1A; }
+  .bw-stylist { color:#888; font-size:0.85rem; margin-bottom:1.2rem; }
+  .bw-meta { display:flex; flex-direction:column; gap:0.5rem; }
+  .bw-meta-item { font-size:0.82rem; color:#555; } .bw-meta-item a { color:#C9A882; text-decoration:none; }
+  .bw-selected-summary { margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid #e8e0d6; }
+  .bw-summary-service { font-weight:600; color:#1A1A1A; font-size:0.9rem; }
+  .bw-summary-detail { color:#888; font-size:0.82rem; margin-top:0.3rem; }
+  .bw-main { flex:1; padding:2rem; }
+  .bw-steps { display:flex; align-items:center; margin-bottom:2rem; }
+  .bw-step { display:flex; flex-direction:column; align-items:center; gap:3px; }
+  .bw-step span { width:32px; height:32px; border-radius:50%; border:2px solid #ddd; display:flex; align-items:center; justify-content:center; font-size:0.85rem; color:#aaa; font-weight:600; transition:all 0.3s; }
+  .bw-step small { font-size:0.7rem; color:#aaa; white-space:nowrap; }
+  .bw-step.active span { border-color:#C9A882; background:#C9A882; color:#fff; }
+  .bw-step.done span { border-color:#C9A882; color:#C9A882; }
+  .bw-step.active small, .bw-step.done small { color:#C9A882; }
+  .bw-step-line { flex:1; height:2px; background:#eee; margin:0 0.5rem; margin-bottom:1rem; }
+  .bw-panel-title { font-family:'Playfair Display',serif; font-size:1.1rem; margin-bottom:1.2rem; color:#1A1A1A; }
+  .bw-service-list { display:flex; flex-direction:column; gap:0.6rem; max-height:340px; overflow-y:auto; padding-right:4px; margin-bottom:1.2rem; }
+  .bw-service-card { padding:0.85rem 1rem; border:1.5px solid #e8e0d6; border-radius:8px; cursor:pointer; transition:all 0.2s; }
+  .bw-service-card:hover { border-color:#C9A882; background:#FDFAF7; }
+  .bw-service-card.selected { border-color:#C9A882; background:#FDF6EE; }
+  .bw-svc-name { font-weight:600; font-size:0.9rem; color:#1A1A1A; }
+  .bw-svc-meta { font-size:0.8rem; color:#888; margin-top:2px; } .bw-svc-meta strong { color:#C9A882; }
+  .bw-badge { background:#C9A882; color:#fff; font-size:0.65rem; padding:2px 7px; border-radius:20px; margin-left:6px; font-weight:600; vertical-align:middle; }
+  .bw-next { margin-top:0.5rem; }
+  .bw-next:disabled { opacity:0.4; cursor:not-allowed; }
+  .bw-calendar { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-bottom:1.2rem; }
+  .bw-cal-header { font-size:0.7rem; color:#aaa; text-align:center; padding:4px 0; }
+  .bw-cal-day { aspect-ratio:1; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:0.82rem; cursor:pointer; border:1.5px solid transparent; transition:all 0.2s; }
+  .bw-cal-day.available { color:#1A1A1A; } .bw-cal-day.available:hover { border-color:#C9A882; background:#FDF6EE; }
+  .bw-cal-day.selected { background:#C9A882; color:#fff; border-color:#C9A882; }
+  .bw-cal-day.empty, .bw-cal-day.weekend { color:#ddd; cursor:default; }
+  .bw-times-title { font-size:0.85rem; font-weight:600; color:#1A1A1A; margin-bottom:0.7rem; }
+  .bw-time-grid { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.2rem; }
+  .bw-time-pill { padding:0.4rem 0.9rem; border:1.5px solid #e8e0d6; border-radius:20px; font-size:0.82rem; cursor:pointer; transition:all 0.2s; }
+  .bw-time-pill:hover { border-color:#C9A882; color:#C9A882; }
+  .bw-time-pill.selected { background:#C9A882; border-color:#C9A882; color:#fff; }
+  .bw-nav { display:flex; gap:1rem; margin-top:1rem; }
+  .btn-outline { background:transparent; border:1.5px solid #C9A882; color:#C9A882; } .btn-outline:hover { background:#FDF6EE; }
+  .bw-confirm { text-align:center; padding:2rem 1rem; }
+  .bw-confirm-icon { width:60px; height:60px; border-radius:50%; background:#C9A882; color:#fff; font-size:1.8rem; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; }
+  .bw-confirm h3 { font-family:'Playfair Display',serif; font-size:1.3rem; margin-bottom:1rem; }
+  .bw-confirm-details { background:#FAF7F2; border-radius:8px; padding:1rem; margin-bottom:1rem; font-size:0.9rem; line-height:1.8; }
+  .bw-confirm-note { color:#888; font-size:0.85rem; }
+  @media(max-width:680px) { .booking-widget { flex-direction:column; } .bw-sidebar { max-width:100%; border-right:none; border-bottom:1px solid #e8e0d6; } }
+
+  /* ── BOOKING FORM ── */
     .booking-form-wrap {
       margin-top: 2.5rem;
       text-align: left;
@@ -1139,45 +1189,85 @@
       </div>
       <p class="hours-note">Walk-ins welcome · Appointments recommended for weekends</p>
 
-      <div class="booking-form-wrap">
-        <form id="booking-form" action="https://formspree.io/f/placeholder" method="POST" novalidate>
-          <div class="form-group">
-            <label for="field-name">Name</label>
-            <input type="text" id="field-name" name="name" required placeholder="Your name">
+      <!-- BOOKING WIDGET -->
+      <div class="booking-widget">
+        <!-- LEFT: Salon info -->
+        <div class="bw-sidebar">
+          <div class="bw-avatar">S</div>
+          <div class="bw-salon-name">Isseyo Hair</div>
+          <div class="bw-stylist">with Sunny</div>
+          <div class="bw-meta">
+            <div class="bw-meta-item">📍 8/101-105 Toorak Rd, South Yarra</div>
+            <div class="bw-meta-item">📞 <a href="tel:+61430841030">0430 841 030</a></div>
           </div>
-          <div class="form-group">
-            <label for="field-phone">Phone</label>
-            <input type="tel" id="field-phone" name="phone" required placeholder="e.g. 0400 000 000">
+          <div class="bw-selected-summary" id="bw-summary" style="display:none;">
+            <div class="bw-summary-service" id="bw-sum-service"></div>
+            <div class="bw-summary-detail" id="bw-sum-detail"></div>
           </div>
-          <div class="form-group">
-            <label for="field-service">Service</label>
-            <select id="field-service" name="service" required>
-              <option value="" disabled selected>Select a service</option>
-              <option value="Ladies Cut">Ladies Cut</option>
-              <option value="Men's Cut">Men's Cut</option>
-              <option value="Colour">Colour</option>
-              <option value="Colour Regrowth">Colour Regrowth</option>
-              <option value="Foils Half Head">Foils Half Head</option>
-              <option value="Foils Full Head">Foils Full Head</option>
-              <option value="Balayage">Balayage</option>
-              <option value="Blow Dry">Blow Dry</option>
-              <option value="Soft Perm">Soft Perm</option>
-              <option value="Digital Perm">Digital Perm</option>
-              <option value="Shiseido Straightening Treatment">Shiseido Straightening Treatment</option>
-            </select>
+        </div>
+        <!-- RIGHT: Steps -->
+        <div class="bw-main">
+          <!-- Step indicator -->
+          <div class="bw-steps">
+            <div class="bw-step active" id="bw-step-dot-1"><span>1</span><small>Service</small></div>
+            <div class="bw-step-line"></div>
+            <div class="bw-step" id="bw-step-dot-2"><span>2</span><small>Date & Time</small></div>
+            <div class="bw-step-line"></div>
+            <div class="bw-step" id="bw-step-dot-3"><span>3</span><small>Details</small></div>
           </div>
-          <div class="form-group">
-            <label for="field-date">Preferred Date</label>
-            <input type="date" id="field-date" name="preferred_date" required>
+
+          <!-- STEP 1: Select Service -->
+          <div class="bw-panel" id="bw-panel-1">
+            <h3 class="bw-panel-title">Select a Service</h3>
+            <div class="bw-service-list">
+              <div class="bw-service-card" data-service="Ladies' Cut" data-duration="30 min" data-price="$55">    <div class="bw-svc-name">Ladies' Cut</div><div class="bw-svc-meta">30 min &nbsp;·&nbsp; <strong>$55</strong></div></div>
+              <div class="bw-service-card" data-service="Men's Cut" data-duration="30 min" data-price="$35">       <div class="bw-svc-name">Men's Cut</div><div class="bw-svc-meta">30 min &nbsp;·&nbsp; <strong>$35</strong></div></div>
+              <div class="bw-service-card" data-service="Colour" data-duration="1 hr" data-price="$120">           <div class="bw-svc-name">Colour</div><div class="bw-svc-meta">1 hr &nbsp;·&nbsp; <strong>$120</strong></div></div>
+              <div class="bw-service-card" data-service="Colour Regrowth" data-duration="1 hr" data-price="$90">   <div class="bw-svc-name">Colour Regrowth</div><div class="bw-svc-meta">1 hr &nbsp;·&nbsp; <strong>$90</strong></div></div>
+              <div class="bw-service-card" data-service="Foils – Half Head" data-duration="2 hrs" data-price="$100"><div class="bw-svc-name">Foils – Half Head</div><div class="bw-svc-meta">2 hrs &nbsp;·&nbsp; <strong>$100</strong></div></div>
+              <div class="bw-service-card" data-service="Foils – Full Head" data-duration="2 hrs 30 min" data-price="$120"><div class="bw-svc-name">Foils – Full Head</div><div class="bw-svc-meta">2 hrs 30 min &nbsp;·&nbsp; <strong>$120</strong></div></div>
+              <div class="bw-service-card" data-service="Balayage" data-duration="1 hr 30 min" data-price="$120">  <div class="bw-svc-name">Balayage</div><div class="bw-svc-meta">1 hr 30 min &nbsp;·&nbsp; <strong>$120</strong></div></div>
+              <div class="bw-service-card" data-service="Blow Dry" data-duration="30 min" data-price="$30">        <div class="bw-svc-name">Blow Dry</div><div class="bw-svc-meta">30 min &nbsp;·&nbsp; <strong>$30</strong></div></div>
+              <div class="bw-service-card" data-service="Soft Perm" data-duration="2 hrs" data-price="$90">        <div class="bw-svc-name">Soft Perm</div><div class="bw-svc-meta">2 hrs &nbsp;·&nbsp; <strong>$90</strong></div></div>
+              <div class="bw-service-card" data-service="Digital Perm" data-duration="2 hrs" data-price="$120">    <div class="bw-svc-name">Digital Perm <span class="bw-badge">Signature</span></div><div class="bw-svc-meta">2 hrs &nbsp;·&nbsp; <strong>$120</strong></div></div>
+              <div class="bw-service-card" data-service="Shiseido Straightening" data-duration="2 hrs" data-price="$180"><div class="bw-svc-name">Shiseido Straightening</div><div class="bw-svc-meta">2 hrs &nbsp;·&nbsp; <strong>$180</strong></div></div>
+            </div>
+            <button class="btn bw-next" id="bw-next-1" disabled onclick="bwGoStep(2)">Next →</button>
           </div>
-          <div class="form-group">
-            <label for="field-message">Notes <span class="form-optional">(optional)</span></label>
-            <textarea id="field-message" name="message" rows="3" placeholder="Any notes for Sunny..."></textarea>
+
+          <!-- STEP 2: Date & Time -->
+          <div class="bw-panel" id="bw-panel-2" style="display:none;">
+            <h3 class="bw-panel-title">Pick a Date</h3>
+            <div class="bw-calendar" id="bw-calendar"></div>
+            <div class="bw-times" id="bw-times" style="display:none;">
+              <h4 class="bw-times-title">Available Times</h4>
+              <div class="bw-time-grid" id="bw-time-grid"></div>
+            </div>
+            <div class="bw-nav">
+              <button class="btn btn-outline" onclick="bwGoStep(1)">← Back</button>
+              <button class="btn bw-next" id="bw-next-2" disabled onclick="bwGoStep(3)">Next →</button>
+            </div>
           </div>
-          <button type="submit" class="btn btn-block">Request Appointment</button>
-        </form>
-        <div id="booking-success" class="booking-success-msg" style="display:none;">
-          <p id="booking-success-text"></p>
+
+          <!-- STEP 3: Details -->
+          <div class="bw-panel" id="bw-panel-3" style="display:none;">
+            <h3 class="bw-panel-title">Your Details</h3>
+            <div id="bw-detail-form">
+              <div class="form-group"><label>Name</label><input type="text" id="bw-name" placeholder="Your full name"></div>
+              <div class="form-group"><label>Phone</label><input type="tel" id="bw-phone" placeholder="0400 000 000"></div>
+              <div class="form-group"><label>Email</label><input type="email" id="bw-email" placeholder="your@email.com"></div>
+              <div class="bw-nav">
+                <button class="btn btn-outline" onclick="bwGoStep(2)">← Back</button>
+                <button class="btn" onclick="bwConfirm()">Confirm Booking</button>
+              </div>
+            </div>
+            <div id="bw-confirm-card" style="display:none;" class="bw-confirm">
+              <div class="bw-confirm-icon">✓</div>
+              <h3>Booking Requested!</h3>
+              <div class="bw-confirm-details" id="bw-confirm-details"></div>
+              <p class="bw-confirm-note">Sunny will confirm your appointment shortly via phone.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1218,7 +1308,74 @@
     });
 
     // Booking form
-    const bookingForm = document.getElementById('booking-form');
+    // Booking Widget
+  let bwSelection = { service:'', duration:'', price:'', date:'', time:'' };
+  document.querySelectorAll('.bw-service-card').forEach(card => {
+    card.addEventListener('click', () => {
+      document.querySelectorAll('.bw-service-card').forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      bwSelection.service = card.dataset.service;
+      bwSelection.duration = card.dataset.duration;
+      bwSelection.price = card.dataset.price;
+      document.getElementById('bw-next-1').disabled = false;
+      const sum = document.getElementById('bw-summary');
+      sum.style.display = 'block';
+      document.getElementById('bw-sum-service').textContent = bwSelection.service;
+      document.getElementById('bw-sum-detail').textContent = bwSelection.duration + ' · ' + bwSelection.price;
+    });
+  });
+  function bwGoStep(n) {
+    [1,2,3].forEach(i => {
+      document.getElementById('bw-panel-'+i).style.display = i===n?'block':'none';
+      const dot = document.getElementById('bw-step-dot-'+i);
+      dot.classList.remove('active','done');
+      if(i===n) dot.classList.add('active');
+      if(i<n) dot.classList.add('done');
+    });
+    if(n===2) bwBuildCalendar();
+  }
+  function bwBuildCalendar() {
+    const cal = document.getElementById('bw-calendar');
+    const now = new Date(); const y = now.getFullYear(); const m = now.getMonth();
+    const days = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+    let html = days.map(d=>`<div class="bw-cal-header">${d}</div>`).join('');
+    const first = new Date(y,m,1).getDay();
+    const total = new Date(y,m+1,0).getDate();
+    for(let i=0;i<first;i++) html+=`<div class="bw-cal-day empty"></div>`;
+    for(let d=1;d<=total;d++) {
+      const date = new Date(y,m,d); const dow = date.getDay();
+      const past = date < new Date(y,now.getMonth(),now.getDate());
+      const weekend = dow===0||dow===6;
+      const cls = past||weekend?'weekend':'available';
+      html+=`<div class="bw-cal-day ${cls}" ${!past&&!weekend?`onclick="bwSelectDate('${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}','${d}')"`:''}>${d}</div>`;
+    }
+    cal.innerHTML = html;
+  }
+  function bwSelectDate(val, label) {
+    bwSelection.date = val; bwSelection.time = '';
+    document.querySelectorAll('.bw-cal-day').forEach(d=>d.classList.remove('selected'));
+    event.target.classList.add('selected');
+    document.getElementById('bw-next-2').disabled = true;
+    const times = ['10:00am','11:00am','12:00pm','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm'];
+    document.getElementById('bw-time-grid').innerHTML = times.map(t=>`<div class="bw-time-pill" onclick="bwSelectTime('${t}',this)">${t}</div>`).join('');
+    document.getElementById('bw-times').style.display='block';
+  }
+  function bwSelectTime(t, el) {
+    bwSelection.time = t;
+    document.querySelectorAll('.bw-time-pill').forEach(p=>p.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('bw-next-2').disabled = false;
+  }
+  function bwConfirm() {
+    const name = document.getElementById('bw-name').value.trim();
+    if(!name) { alert('Please enter your name'); return; }
+    document.getElementById('bw-detail-form').style.display='none';
+    document.getElementById('bw-confirm-card').style.display='block';
+    document.getElementById('bw-confirm-details').innerHTML =
+      `<strong>${bwSelection.service}</strong><br>${bwSelection.duration} · ${bwSelection.price}<br>${bwSelection.date} at ${bwSelection.time}<br>Name: ${name}`;
+  }
+
+  const bookingForm = document.getElementById('booking-form');
     const bookingSuccess = document.getElementById('booking-success');
     const bookingSuccessText = document.getElementById('booking-success-text');
 
