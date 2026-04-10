@@ -1375,30 +1375,7 @@
       `<strong>${bwSelection.service}</strong><br>${bwSelection.duration} · ${bwSelection.price}<br>${bwSelection.date} at ${bwSelection.time}<br>Name: ${name}`;
   }
 
-  const bookingForm = document.getElementById('booking-form');
-    const bookingSuccess = document.getElementById('booking-success');
-    const bookingSuccessText = document.getElementById('booking-success-text');
 
-    if (bookingForm) {
-      bookingForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const name = document.getElementById('field-name').value.trim();
-
-        try {
-          await fetch(bookingForm.action, {
-            method: 'POST',
-            body: new FormData(bookingForm),
-            headers: { 'Accept': 'application/json' }
-          });
-        } catch (_) {
-          // Silently continue — show success regardless
-        }
-
-        bookingForm.style.display = 'none';
-        bookingSuccessText.textContent = `Thanks ${name}! Sunny will be in touch shortly to confirm your appointment.`;
-        bookingSuccess.style.display = 'block';
-      });
-    }
 
     // Fade-in on scroll
     const fadeEls = document.querySelectorAll('.pricing-category, .gallery-item, .contact-item');
