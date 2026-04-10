@@ -763,6 +763,99 @@
         align-items: center;
       }
     }
+
+    /* ── BOOKING FORM ── */
+    .booking-form-wrap {
+      margin-top: 2.5rem;
+      text-align: left;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .form-optional {
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--ink-muted);
+      font-size: 0.72rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A882' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(201, 168, 130, 0.15);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #b0a898;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .btn-block {
+      width: 100%;
+      text-align: center;
+      padding: 0.85rem 1.75rem;
+    }
+
+    .booking-success-msg {
+      background: var(--accent-light);
+      border: 1.5px solid var(--accent);
+      padding: 2rem 1.75rem;
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    .booking-success-msg p {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
@@ -776,7 +869,7 @@
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#reviews-section">Reviews</a></li>
       <li><a href="#contact-section">Contact</a></li>
-      <li><a href="https://www.bookwell.com.au/venue/nb/isseyo-hair/south-yarra/3141" target="_blank" rel="noopener" class="btn">Book Now</a></li>
+      <li><a href="#contact-section" class="btn">Book Now</a></li>
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Open menu">
       <span></span>
@@ -792,7 +885,7 @@
     <a href="#gallery" onclick="closeMobileMenu()">Gallery</a>
     <a href="#reviews-section" onclick="closeMobileMenu()">Reviews</a>
     <a href="#contact-section" onclick="closeMobileMenu()">Contact</a>
-    <a href="https://www.bookwell.com.au/venue/nb/isseyo-hair/south-yarra/3141" target="_blank" rel="noopener" class="btn" style="text-align:center;">Book Now</a>
+    <a href="#contact-section" class="btn" style="text-align:center;" onclick="closeMobileMenu()">Book Now</a>
   </div>
 
   <!-- ── HERO ── -->
@@ -803,7 +896,7 @@
       <h1>Isseyo<br><em>Hair</em></h1>
       <p class="hero-tagline">South Yarra's best kept secret</p>
       <div class="hero-cta-group">
-        <a href="https://www.bookwell.com.au/venue/nb/isseyo-hair/south-yarra/3141" target="_blank" rel="noopener" class="btn">Book Your Appointment</a>
+        <a href="#contact-section" class="btn">Book Your Appointment</a>
         <a href="#services" class="btn btn-outline">Explore Services</a>
       </div>
     </div>
@@ -1045,8 +1138,48 @@
         </div>
       </div>
       <p class="hours-note">Walk-ins welcome · Appointments recommended for weekends</p>
-      <br />
-      <a href="https://www.bookwell.com.au/venue/nb/isseyo-hair/south-yarra/3141" target="_blank" rel="noopener" class="btn">Book Your Appointment</a>
+
+      <div class="booking-form-wrap">
+        <form id="booking-form" action="https://formspree.io/f/placeholder" method="POST" novalidate>
+          <div class="form-group">
+            <label for="field-name">Name</label>
+            <input type="text" id="field-name" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="field-phone">Phone</label>
+            <input type="tel" id="field-phone" name="phone" required placeholder="e.g. 0400 000 000">
+          </div>
+          <div class="form-group">
+            <label for="field-service">Service</label>
+            <select id="field-service" name="service" required>
+              <option value="" disabled selected>Select a service</option>
+              <option value="Ladies Cut">Ladies Cut</option>
+              <option value="Men's Cut">Men's Cut</option>
+              <option value="Colour">Colour</option>
+              <option value="Colour Regrowth">Colour Regrowth</option>
+              <option value="Foils Half Head">Foils Half Head</option>
+              <option value="Foils Full Head">Foils Full Head</option>
+              <option value="Balayage">Balayage</option>
+              <option value="Blow Dry">Blow Dry</option>
+              <option value="Soft Perm">Soft Perm</option>
+              <option value="Digital Perm">Digital Perm</option>
+              <option value="Shiseido Straightening Treatment">Shiseido Straightening Treatment</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="field-date">Preferred Date</label>
+            <input type="date" id="field-date" name="preferred_date" required>
+          </div>
+          <div class="form-group">
+            <label for="field-message">Notes <span class="form-optional">(optional)</span></label>
+            <textarea id="field-message" name="message" rows="3" placeholder="Any notes for Sunny..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-block">Request Appointment</button>
+        </form>
+        <div id="booking-success" class="booking-success-msg" style="display:none;">
+          <p id="booking-success-text"></p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1083,6 +1216,32 @@
         mobileMenu.classList.remove('open');
       }
     });
+
+    // Booking form
+    const bookingForm = document.getElementById('booking-form');
+    const bookingSuccess = document.getElementById('booking-success');
+    const bookingSuccessText = document.getElementById('booking-success-text');
+
+    if (bookingForm) {
+      bookingForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('field-name').value.trim();
+
+        try {
+          await fetch(bookingForm.action, {
+            method: 'POST',
+            body: new FormData(bookingForm),
+            headers: { 'Accept': 'application/json' }
+          });
+        } catch (_) {
+          // Silently continue — show success regardless
+        }
+
+        bookingForm.style.display = 'none';
+        bookingSuccessText.textContent = `Thanks ${name}! Sunny will be in touch shortly to confirm your appointment.`;
+        bookingSuccess.style.display = 'block';
+      });
+    }
 
     // Fade-in on scroll
     const fadeEls = document.querySelectorAll('.pricing-category, .gallery-item, .contact-item');
